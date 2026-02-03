@@ -1,0 +1,187 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* =========================
+   BANNER
+========================= */
+.banner-gif {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.banner-gif img {
+    height: 250px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+#yes-button {
+    margin: 0 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+}
+
+#no-button {
+    margin: 0 10px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+}
+
+/* =========================
+   CORNER FRAMES 💖
+========================= */
+.corner-frame {
+    position: fixed;
+    width: 210px; /* BIGGER */
+    padding: 14px;
+    border: 5px solid #ff9ecf;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #ffe6f0, #ffd1e6);
+    box-shadow:
+        0 10px 25px rgba(255, 105, 180, 0.35),
+        0 0 20px rgba(255, 182, 193, 0.7);
+    pointer-events: none;
+    z-index: 1;
+    animation-duration: 5.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.corner-frame img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+/* =========================
+   HEART BUBBLES 💕 (NOW WORKING)
+========================= */
+.corner-frame::before,
+.corner-frame::after {
+    content: "❤";
+    position: absolute;
+    color: rgba(255, 105, 180, 0.75);
+    animation: heartBubble 3.5s ease-in-out infinite;
+}
+
+.corner-frame::before {
+    font-size: 20px;
+    top: -18px;
+    left: 24px;
+}
+
+.corner-frame::after {
+    font-size: 14px;
+    bottom: -18px;
+    right: 28px;
+    animation-delay: 1.4s;
+}
+
+@keyframes heartBubble {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-14px) scale(1.25);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+}
+
+/* =========================
+   FLOATING (SAFE PATHS)
+========================= */
+@keyframes floatTL {
+    50% { transform: translate(16px, 16px); }
+}
+@keyframes floatTR {
+    50% { transform: translate(-16px, 16px); }
+}
+@keyframes floatBL {
+    50% { transform: translate(16px, -16px); }
+}
+@keyframes floatBR {
+    50% { transform: translate(-16px, -16px); }
+}
+
+/* =========================
+   POSITIONS
+========================= */
+.top-left {
+    top: 12px;
+    left: 12px;
+    animation-name: floatTL;
+}
+
+.top-right {
+    top: 12px;
+    right: 12px;
+    animation-name: floatTR;
+}
+
+.bottom-left {
+    bottom: 12px;
+    left: 12px;
+    animation-name: floatBL;
+}
+
+.bottom-right {
+    bottom: 12px;
+    right: 12px;
+    animation-name: floatBR;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+    .corner-frame {
+        width: 130px;
+        padding: 10px;
+    }
+}
+.message {
+    display: none;
+}
